@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Cursos no Funchal </title>
+        <style>
+            aside {
+              width: 30%;
+              padding-left: 15px;
+              margin-left: 15px;
+              float: right;
+              font-style: italic;
+              background-color:antiquewhite;
+            }
+            h1, h2 {
+                text-align: center;
+                color: blue;
+            }
+            h3 {
+                text-align: center;
+                color: cornflowerblue;
+            }
+            p.curso {
+                text-align: center;
+                color: darkblue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Cursos de programação</h1>
+        </header>
+            <section>
+                <h2>JavaScript</h2>
+                <article>
+                    <h3>Cursos de Front-end</h3>
+                    <p class="curso">Descrição do curso...</p>
+                </article>
+                <article>
+                    <h3>Cursos de Back-end</h3>
+                    <p class="curso">Descrição do curso...</p>
+                </article>
+            </section>
+            <section>
+                <h2>Java</h2>
+                <article>
+                    <h3>Cursos de Orientação a Objectos</h3>
+                    <p class="curso">Descrição do curso...</p>
+                </article>
+            </section>
+            <aside>
+                <p class="lateral">Video</p>
+                <video width="300" height="200" poster="SampleVideo.png" controls autoplay loop muted>
+                    <source src="sample-webm-file.webm" type="video/webm">
+                    <source src="sample-webm-file.mp4" type="video/mp4">
+                    <source src="sample-webm-file.ogg" type="video/ogg">
+                    Este texto é exibido se o browser não suporta nenhuma das tags do video anteriores (neste caso mp4, webm e ogg)
+                </video>
+                <p class="lateral">Audio</p>
+                <audio controls>
+                    <source src="audio.wav" type="audio/wav">
+                    <source src="audio.mpeg" type="audio/mpeg">
+                    <source src="audio.ogg" type="audio/ogg">
+                    Este texto é exibido se o browser não suporta nenhuma das tags do audio anteriores (neste caso wav, mpeg e ogg)
+                </audio>
+                <p class="lateral">Video do youtube</p>
+                <iframe width="400" height="300" src="https://www.youtube.com/embed/tgbNymZ7vqY">/iframe>
+            </aside>
+            <footer>
+                <p>Fábio Mendonça, todos os direitos reservados, 2021</p>
+            </footer>
+    </body>
+</html>
