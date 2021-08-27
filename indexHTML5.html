@@ -16,14 +16,73 @@
                 text-align: center;
                 color: blue;
             }
+            h1::first-letter, h2::first-letter{
+                color: lawngreen;
+                font-size: xx-large;
+            }
             h3 {
                 text-align: center;
                 color: cornflowerblue;
+            }
+            header::after {
+                content: url(smile.gif);
             }
             p.curso {
                 text-align: center;
                 color: darkblue;
             }
+            a[class^="l"] {
+                text-align: left;
+                background-color:gray;
+            }
+            a:link {
+                color: green;
+            }
+            a:visited {
+                color: hotpink;
+            }
+            a:hover {
+                color: indigo;
+            }
+            a:active {
+                color: khaki;
+            }
+            div[class="box1"] {
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
+                display: -ms-grid;
+                display: grid;
+                height: 100%;
+                justify-items: center;   
+                background: #333;
+                color: #fff;
+                padding: 20px;
+            }
+
+            .outerDiv {
+                background-color: #006699;
+                color: #fff;
+                height: 400px;
+                width: 600px;
+                margin: 0px auto;
+                padding: 5px;
+            }
+            .leftDiv {
+                background-color: #efefef;
+                color: #000;
+                height: 400px;
+                width: 48%;
+                float: left;
+            }
+            .rightDiv {
+                background-color: #efefef;
+                color: #000;
+                height: 400px;
+                width: 48%;
+                float: right;
+            }
+
         </style>
     </head>
 
@@ -35,18 +94,41 @@
                 <h2>JavaScript</h2>
                 <article>
                     <h3>Cursos de Front-end</h3>
-                    <p class="curso">Descrição do curso...</p>
+                    <div class="box1">
+                        <div class="leftDiv1">
+                            <p class="curso">Descrição do curso...</p>
+                            <a class="link1" href="indexHTML5forms.html">Link para inscrição</a>
+                        </div>
+                        <div class="rightDiv1">
+                            <p class="curso">Descrição do curso...</p>
+                            <a class="link1" href="indexHTML5forms.html">Link para inscrição</a>
+                        </div>
+                    </div>
                 </article>
                 <article>
                     <h3>Cursos de Back-end</h3>
                     <p class="curso">Descrição do curso...</p>
+                    <a class="link2" href="indexHTML5forms.html">Link para inscrição</a>
+                    <div class="outerDiv">
+                        <div class="leftDiv">
+                            <p class="curso">Descrição do curso...</p>
+                            <a class="link2" href="indexHTML5forms.html">Link para inscrição</a>
+                        </div>
+                        <div class="rightDiv">
+                            <p class="curso">Descrição do curso...</p>
+                            <a class="link2" href="indexHTML5forms.html">Link para inscrição</a>
+                        </div>
+                    </div>
                 </article>
             </section>
             <section>
                 <h2>Java</h2>
                 <article>
-                    <h3>Cursos de Orientação a Objectos</h3>
-                    <p class="curso">Descrição do curso...</p>
+                    <div> 
+                        <h3>Cursos de Orientação a Objectos</h3>
+                        <p class="curso" style="background-color: lawngreen;">Descrição do curso...</p>
+                        <a class="link3" href="indexHTML5forms.html">Link para inscrição</a>
+                    </div>
                 </article>
             </section>
             <aside>
@@ -67,8 +149,5 @@
                 <p class="lateral">Video do youtube</p>
                 <iframe width="400" height="300" src="https://www.youtube.com/embed/tgbNymZ7vqY">/iframe>
             </aside>
-            <footer>
-                <p>Fábio Mendonça, todos os direitos reservados, 2021</p>
-            </footer>
     </body>
 </html>
