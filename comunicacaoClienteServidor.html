@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Manipuar JSOM e acesso a servisor</title>
+</head>
+<body>
+    <p>Imagem usando o metodo fetch</p>
+    <img id="imagem1" src="">
+    <p>Imagem usando o metodo fetch com wait</p>
+    <img id="imagem2" src="">
+    <script>
+        // criar objeto em json
+        let data = {
+            "empregado": {
+                "nome": "Ana",
+                "idade": 28,
+                "cidade": "Funchal"
+            }
+        }
+        // caia de texto com um elemento do objeto (neste caso o nome)
+        alert(data.empregado.nome)
+        // converter objeto JSON em string (para enviar ao servidor)
+        const obj = JSON.stringify(data)
+        alert(obj)
+        // converter uma string em objeto JS e apresenta novamente o "nome"
+        const obj2 = JSON.parse(obj)
+        alert(obj2.empregado.nome)
+    </script>
+    <script>
+        // obter a imagem aleatória de um cão de raça "husky" de um servidor com API fetch
+        fetch("https://dog.ceo/api/breed/husky/images/random")
+            .then(res => res.json())
+                .then(json => document.getElementById("imagem1").src = json.message)
+    </script>
+    <script>
+        // obter a imagem aleatória de um cão de raça "husky" de um servidor com API fetch
+        async function fetchBreed(breed){
+            try{
+                const response = await fetch("https://dog.ceo/api/breed/"+breed+"/images/random")
+                const jsonData = await response.json()
+                document.getElementById("imagem2").src = jsonData.message
+            }
+            catch (e){
+                alert(e)
+            }
+        }
+        fetchBreed("husky")
+    </script>
+</body>
