@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Analisa do DOM</title>
+</head>
+<body>
+    <div id="myDiv">
+        <p>Paragrafo 1</p>
+        <p>Paragrafo 2</p>
+    </div>
+    <h3 id="result"></h3>
+    <div id="BotaoComJSnoMesmoFicheiro">
+            <!--- define um botao que chama um callback (é um evento) em JS que 
+            chama a função displayData e mostra a data-->
+        <p id="resultButt1"></p>
+        <button onclick="displayData()">Qual a data atual?</button>
+    </div>
+    <div id="BotaoComJSnoFicheiroExterno">
+        <p id="resultButt2"></p>
+        <button id="myButton2">Qual a data atual (2)?</button>
+    </div>
+    <div id="BotaoComJSnoFicheiroExternoEEventListener">
+        <p id="resultButt3"></p>
+        <button id="myButton3">Qual a data atual (3)?</button>
+    </div>
+    <div id="FormularioComJSdefinidoNumFicheiroExterno">
+        <form id="frm" action="run.php">
+            Password: <input id="pass1" type="password" name="pass1"><br>
+            Confirmar password: <input id="pass2" type="password" name="pass2">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!--- adicionar um paragrafo após o "Paragrafo 2", primeiro criando elemento p,
+    depois cria o nó com o texto do paragrafo e indica que o no será filho do 
+    novo paragrafo, por fim vai vuscar o a divisão "myDiv" e adiciona o novo
+    paragrafo como filho --> 
+    <script>
+        let paragraph = document.createElement("p")
+        let textNode = document.createTextNode("Paragrafo 3")
+        paragraph.appendChild(textNode)
+        let element = document.getElementById("myDiv")
+        element.appendChild(paragraph)
+    </script>
+    <!--- conta o numero de filhos que um elemento tem e apresenta o texto de todos
+    no "result" combinados em uma unica string -->
+    <script>
+        let paragrafos = document.getElementById("myDiv").childNodes
+        let numeroParagrafos = paragrafos.length
+        texto = ""
+        for (let i = 0; i < numeroParagrafos; i++){
+            if (typeof paragrafos[i].innerHTML === 'string') { // filtrar os elementos que não são string como o "nova linha"
+                texto += paragrafos[i].innerHTML + " "
+            }
+
+        }
+        document.getElementById("result").innerHTML= `Paragrafos: ${texto}`
+    </script>
+    <script>
+        function displayData(){
+            document.getElementById("resultButt1").innerHTML = new Date()
+        }
+    </script>
+    <script src="forForm.js">
+        // chama o ficheiro JS exterior que ira realizar o event listener do formulario
+    </script>
+    <script src="data.js"></script>
+    <script src="ChangeColor.js"></script>
+</body>
