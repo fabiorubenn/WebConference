@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- 
+            X-UA-Compatible para poder correr em vesões antigas do internet explorer, 
+            IE=edge means IE should use the latest (edge) version of its rendering engine,
+            chrome=1 means IE should use the Chrome rendering engine if installed
+        -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site de uma Conferência Web">
+        <meta name="author" content="Fábio Mendonça">
+        <title>Document</title>
+        <!-- 
+            Para usar a framework bootstrap temos de farez referência ao cdn (content delivery network)
+            no head e depois colocar a referência para o JS no body
+        -->
+        <!-- Bootstrap CSS -->
+        <link 
+            rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous"
+        >
+
+        <!-- Custom fonts for this template -->
+        <link 
+            rel="stylesheet" 
+            href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+            integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
+            crossorigin="anonymous"
+        >
+        <link 
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700" 
+            rel="stylesheet" 
+            type="text/css"
+        >
+        <link 
+            href='https://fonts.googleapis.com/css?family=Kaushan+Script' 
+            rel='stylesheet' 
+            type='text/css'
+        >
+        <link 
+            href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' 
+            rel='stylesheet' 
+            type='text/css'
+        >
+        <link 
+            href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' 
+            rel='stylesheet' 
+            type='text/css'
+        >
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- barra de navegação -->
+                <!-- 
+                    no topo da pagina web será colocada uma barra de navegação
+                    com menu horizontal que vai permitir a navegação interna
+                    da SPA (single-page application), para tal usamos o emeneto
+                    nav (surgiu no HTM5), de forma a termos uma barra com aparência
+                    sofisticada e mais responsiva usa-se o navbar do bootstrap
+                -->
+                <!-- definir o nome da aplicação -->
+                <a class="navbar-brand " href="#page-top">WebConference</a>
+                <!-- 
+                    a ação de expandir/colapsar os elementos é controlada por um botão
+                    com a classe navbar-toggler e dois atributos, o primeiro (data-toggle)
+                    informa ao JS o que fazer com o botão e o segundo (data-target) indica
+                    qual é o elemento a alterar após o emparelhamento com o elemento id,
+                    neste caso o navbarResponsive da classe collapse navbar-collapse, por
+                    fim é incluido o elemento que que define a visibilidade dos elementos
+                    que fazem parte de cada item da barra de navegação (usando o span para
+                    fazer o "botão de hambúrger")
+                -->
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>          
+                </button>
+                <!-- definir ocontentor para agregar o conteudo (elementos de navegação) -->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <!-- definir os items de navegação -->
+                    <!-- 
+                        definir os items de navegação em uma lista desordenada, ul, depois
+                        representar cada item da lista, usando li, e para cada item definir
+                        um elemento ancora, a, com o link do item; todos os elementos de
+                        navegação são formatados com caixa alta (texto em maiúsculas, 
+                        definido por text-uppercase) e alinhados a direita (mr-auto), todos
+                        os atributos href apontam para secções internas do SPA
+                    -->
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#speakers">SPEAKERS</a>
+                        </li>
+                        <!--
+                        <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#about">PROGRAMA</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                          <a id="aSponsors" class="nav-link js-scroll-trigger" href="#sponsors">SPONSORS</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="#contacts">CONTACTOS</a>
+                        </li>
+                        <li class="nav-item">
+                          <a id="btnLogin" class="nav-link" href="#">ÁREA PRIVADA</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class ="masthead">
+            <!-- imagem principal e botão de inscrição -->
+            <!-- 
+                definir uma divisão com class container que irá inclusir no seu interior outra divisão
+                onde será definido o título principal e um botão para inscrição
+            -->
+            <div class="container">
+                <div class="intro-text">
+                    <!-- título -->
+                    <!-- botão de inscrição -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Sobre -->
+        <section id="about">
+            <!-- informações basicas sobre a conferência -->
+        </section>
+
+        <!-- Speakers -->
+        <section id="speakers">
+            <!-- informações sobre os speakers -->
+        </section>
+
+        <!-- Sponsors -->
+        <section id="sponsors">
+            <!-- informações sobre os sponsors -->
+        </section>
+
+        <!-- Contacts -->
+        <section id="contacts">
+            <!-- formulário para contacto e mapa -->
+        </section>
+        <footer>
+            <!-- links para redes sociais e copyright -->
+        </footer>
+
+        <!-- 
+            Para usar a framework bootstrap temos de farez referência ao cdn (content delivery network)
+            no head e depois colocar a referência para o JS no body
+        -->
+        <!-- Bootstrap core JavaScript --> 
+        <script 
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous">
+        </script>
+        <script src="js/animation.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+    
+    </body>
+</html>
