@@ -28,12 +28,11 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>   
     </head>
     <body id="page-top">
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <!--############################ Navigation ############################-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"> <!-- When the container is within your navbar, its horizontal padding is removed at breakpoints lower than your specified .navbar-expand{-sm|-md|-lg|-xl} class, this ensures we’re not doubling up on padding unnecessarily on lower viewports when your navbar is collapsed; Choose from .navbar-light for use with light background colors, or .navbar-dark for dark background colors; place navbars in non-static positions, in this case to choose from fixed to the top use fixed-top -->
             <div class="container">
                 <!-- barra de navegação -->
                 <!-- 
@@ -55,11 +54,11 @@
                     que fazem parte de cada item da barra de navegação (usando o span para
                     fazer o "botão de hambúrger")
                 -->
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>          
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <!-- navbar-toggler for use with collapse plugin (data-toggle="collapse") and navigation toggling behaviors; use navbar-toggler-right to align the elements to the right (toggle button on the right side); various buttons are supported as part of these navbas; data-target="#navbarResponsive" indica onde estão definidos os elementos da barra, neste caso na class "navbarResponsive" que está definida logo abaixo; aria-controls attribute creates a cause and effect relationship, it identifies the element(s) that are controlled by the current element, when that relationship isn't represented in the DOM (in this example a button that controls the display of information contained within a div); the aria-label defines a name tag for the aria-controls and aria-expanded attribute provides information about whether an element is in an expanded or collapsed state -->
+                    <span class="navbar-toggler-icon"></span> <!-- navbar-toggler-icon (hamburger) in Bootstrap 4 uses an SVG background-image; there are 2 "versions" of the toggler icon image. One for a light navbar, and one for a dark navbar -->       
                 </button>
                 <!-- definir ocontentor para agregar o conteudo (elementos de navegação) -->
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse" id="navbarResponsive"> <!-- navbar-collapse for grouping and hiding navbar contents by a parent breakpoint -->
                     <!-- definir os items de navegação -->
                     <!-- 
                         definir os items de navegação em uma lista desordenada, ul, depois
@@ -69,9 +68,9 @@
                         definido por text-uppercase) e alinhados a direita (mr-auto), todos
                         os atributos href apontam para secções internas do SPA
                     -->
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#sobre">Sobre</a>
+                    <ul class="navbar-nav text-uppercase ml-auto"> <!-- navbar-nav for a full-height and lightweight navigation (including support for dropdowns); text-uppercase to have uppercased text; ML is margin-left, so ml-auto means margin-left: auto which aligns an element to the right -->
+                        <li class="nav-item"> <!-- add a new item to the navbar -->
+                            <a class="nav-link js-scroll-trigger" href="#sobre">Sobre</a> <!-- class that will be used by the develop JS (animation.js) to produce an animation when scrolling the page -->
                         </li>
                         <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="#speakers">SPEAKERS</a>
@@ -82,7 +81,7 @@
                         </li>
                         -->
                         <li class="nav-item">
-                          <a id="aSponsors" class="nav-link js-scroll-trigger" href="#sponsors">SPONSORS</a>
+                          <a class="nav-link js-scroll-trigger" href="#sponsors">SPONSORS</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link js-scroll-trigger" href="#contacts">CONTACTOS</a>
@@ -95,25 +94,25 @@
             </div>
         </nav>
 
-        <!-- Header -->
+        <!--############################ Header ############################-->
         <header class="masthead">
             <!-- imagem principal e botão de inscrição -->
             <!-- 
                 definir uma divisão com class container que irá inclusir no seu interior outra divisão
                 onde será definido o título principal e um botão para inscrição
             -->
-            <div class="container">
-                <div class="intro-text">
+            <div class="container"> <!-- Bootstrap requires a containing element to wrap site contents, containers are used to pad the content inside of them, the "container" class provides a responsive fixed width container while "container-fluid" class provides a full width container, spanning the entire width of the viewport-->
+                <div class="intro-text"> <!-- style defined in "webconf.css"-->
                     <!-- título composto por duas frases representadas por dois elementos div -->
-                    <div class="intro-lead-in">Vamos celebrar a WEB!</div>
-                    <div class="intro-heading text-uppercase">WebConference</div>
+                    <div class="intro-lead-in">Vamos celebrar a WEB!</div> <!-- style defined in "webconf.css"-->
+                    <div class="intro-heading text-uppercase">WebConference</div> <!-- "intro-heading" style defined in "webconf.css"-->
                     <!-- botão de inscrição -->
-                    <a id="btnRegister" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">INSCREVER</a>
+                    <a id="btnRegister" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">INSCREVER</a> <!-- create a button of type .btn-primary which has white text on a blue background; btn-xl indicates that it is an extra large button (defines the size); text-uppercase indicates that it is all uppercased text; js-scroll-trigger is used to identify that this buttun will have the animation defined in the JS file developed (animation.js)-->
                 </div>
             </div>
         </header>
 
-        <!-- Sobre -->
+        <!--############################ Sobre ############################-->
         <section id="sobre">
             <!-- informações basicas sobre a conferência (data, local e topicos) -->
             <!-- 
@@ -122,18 +121,18 @@
                 (definido no CSS), depois são expecificadas as linhas e as colunas do
                 container
             -->
-            <div class="container">
-                <div class="row">
+            <div class="container"> 
+                <div class="row"> <!-- use the grid system inside of the "container", "rows" are wrappers for columns -->
                     <!-- título e texto principal -->
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading text-uppercase">Sobre</h2>
+                    <div class="col-lg-12 text-center"> <!-- Each column has horizontal padding (called a gutter) for controlling the space between them, this padding is then counteracted on the rows with negative margins, this way, all the content in columns is visually aligned down the left side; grid breakpoints are based on minimum width media queries, meaning they apply to that one breakpoint and all those above it, in this case using "-lg" meanes a large column (equal or grather than 960px); the size of the column can range from 1 to 12, by indicatin -12 (in col-lg-12) it means it should acquire entire width, when the page is being displayed on large devices (inidcated with lg); text-center makes the text cestered -->
+                        <h2 class="section-heading text-uppercase">Sobre</h2> <!-- "section-heading" style defined in "webconf.css"-->
                         <h3 class="section-subheading">Conferência sobre a web, a decorrer entre 13 e 17 de Setembro de 2021, no Pavilhão A no Funchal</h3>
                     </div>
                 </div>
                 <div class="row text-center">
                     <!-- tópicos -->
                     <!-- cada tópico é representado por um ícone, um título e uma breve descrição -->
-                    <div class="col-md-6">
+                    <div class="col-md-6"> <!-- use a column with medium size (equal or grather than 768px) which spans 6 of 12 columns (half the width) (12 is the maximum allowed in bootstrap) -->
                         <!-- tópico 1 -->
                         <!-- 
                             para usar os ícones do font awesome é indicado um prefixo de estilo (fas para
@@ -149,7 +148,7 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-globe fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="topic-heading">Computação Ubíqua</h4>
+                        <h4 class="topic-heading">Computação Ubíqua</h4> <!-- style defined in "webconf.css"-->
                         <p class="text-muted">Expandir a Web para fora do computador e ligá-la à Internet das Coisas!</p>
                     </div>
                     <div class="col-md-6">
@@ -159,13 +158,13 @@
                             <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="topic-heading">Responsividade</h4>
-                        <p class="text-muted">Adaptar as aplicações Web a múltiplos dispositivos e torná-las mais responsivas em termos de performance!</p>
+                        <p class="text-muted">Adaptar as aplicações Web a múltiplos dispositivos e torná-las mais responsivas em termos de performance!</p> <!-- define the color of the text accorging to "text-muted" (it has a faded color) -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Speakers -->
+        <!--############################ Speakers ############################-->
         <section class="bg-light" id="speakers">
             <!-- informações sobre os speakers -->
             <!-- 
@@ -270,20 +269,187 @@
         </section>
         
 
-        <!-- Sponsors -->
+        <!--############################ Sponsors ############################-->
         <section id="sponsors">
-            <!-- informações sobre os sponsors -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">Sponsors</h2>                
+                    </div>
+                </div>
+                <div class="row text-center" id="renderSponsors">
+                    <!-- 
+                        informações sobre os sponsors apresentada de forma estática em uma linha com 4 sponsors,
+                        sendo apresentado o link para a página do sponsor e uma imagem com o logo do mesmo; neste
+                        exemplo indica-se que deve ser produzida uma coluna com tamanho médio e oculpar o espaço
+                        de 3 em 12 colunas (col-md-3) para cada logo, caso o ecã do utilizador não permita colocar 
+                        estas colunas então usa a segunda opção, uma coluna de tamanho pequeno que ocupara 6 de 12 
+                        colunas para cada logo (logo vai criar duas linhas)
+                    -->
+                    <!-- 
+                    <div class="col-md-3 col-sm-6">
+                        <p>Sponsor 1</p>
+                        <a href="https://www.google.com">
+                            <img class="img-fluid d-block mx-auto" src="img/logo/1.jpg" alt="Sponsor 1" width=100px height=100px>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>Sponsor 2</p>
+                        <a href="https://www.google.com">
+                            <img class="img-fluid d-block mx-auto" src="img/logo/2.jpg" alt="Sponsor 2" width=100px height=100px>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>Sponsor 3</p>
+                        <a href="https://www.google.com">
+                            <img class="img-fluid d-block mx-auto" src="img/logo/3.jpg" alt="Sponsor 3" width=100px height=100px>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>Sponsor 4</p>
+                        <a href="https://www.google.com">
+                            <img class="img-fluid d-block mx-auto" src="img/logo/4.jpg" alt="Sponsor 4" width=100px height=100px>
+                        </a>
+                    </div>
+                    -->
+                    <!-- 
+                        implementação dinâmica usando JS, sendo pedida informação dos sponsors ao servidor 
+                        que será depois colocada no div com id renderSponsors
+                    -->
+                </div>
+            </div>
         </section>
 
-        <!-- Contacts -->
+        <!--############################ Contacts ############################-->
+        <!-- 
+            a secção contactos tem como objetivo prossibilitar ao utilizador o envio de mensagens (comentários, dúvida e sugestões) e
+            exibir um mapa com a informação sobre o local da conferência; o envio de mensagens é feito com um formulário organizado
+            numa linha com dua colunas, na linha seguinte é apresentado o botão para submeter a mensagem
+        -->
         <section id="contacts">
             <!-- formulário para contacto e mapa -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="contactForm" name="sendMessage">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- campo nome -->
+                                    <div class="form-group"> <!-- style defined in "webconf.css"-->
+                                        <!-- ao usar o atributo unitário required obgira-se o utilizador a preencher o campo em "input" -->
+                                        <input class="form-control" id="name" type="text" placeholder="Indique o seu nome*" required> <!-- style defined in "webconf.css"-->
+                                    </div>
+                                    <!-- campo email -->
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" type="email" placeholder="Indique o seu email*" required>
+                                    </div>
+                                    <!-- campo telemóvel -->
+                                    <div class="form-group">
+                                        <input class="form-control" id="phone" type="tel" placeholder="Indique o seu nº de telemóvel"> <!-- o numero de telefone é facultativo logo não está definido como required-->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- campo mensagem -->
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="message" placeholder="A sua mensagem*" required></textarea>
+                                      </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Campos obrigatórios*</p>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                    <!-- 
+                                        botão para envio da mensagem com atributo submit que submete o furmulário para o servidor 
+                                        ao ser precionado, esto o listener definido em JS no ficheiro "webconf.js"
+                                    -->
+                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Enviar mensagem</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <!-- inserir o mapa obtido atravéz do google maps -->
+            <div class="container-fluid" id="googleMap">
+                <div class="row"></div>
+            </div>
         </section>
+
+        <!--############################ Footer ############################-->
         <footer>
             <!-- links para redes sociais e copyright -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- informação sobre copyright -->
+                        <span class="copyright>">
+                            Copyright &copy; WebConference 2021
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- ícones para as redes sociais -->
+                        <!-- list-inline create a group of list with list items -->
+                        <ul class="list-inline social-buttons"> <!-- social-buttons style defined in "webconf.css"-->
+                            <li class="list-inline-item"> 
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
 
-        <!-- JS -->
+        <!--############################ Autenticação ############################-->
+            <!-- Janela Modal para autenticação  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Entrar na Área privada</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+                <form role="form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email"/><br>
+                    <input type="password" class="form-control" placeholder="Password" />
+                  </div>
+                </form>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Entrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!--############################ Página de administração (back office) ############################ -->
+        <!-- 
+            A página de administração é de acesso condicionado (requer autenticação) e permite ao administrador
+            gerir a informação relativa aos participantes, os oradores e sponsors da conferência, para criar a 
+            página usou-se o template SB Admin do bootstrap
+        -->
+
+
+        <!--############################ JS ############################ -->
         <!-- colocar o loading dos JS no fim para não atrasar a apresentação da página ao utilizador -->
         <!-- 
             Para usar a framework bootstrap temos de farez referência ao cdn (content delivery network)
@@ -299,6 +465,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
         <!-- Custom scripts desenvolvidos para este projeto -->
         <script src="js/webconf.js"></script>
-    
+        <!-- 
+            Carregar a API do google maps para poder usar os mapas da mesma, sendo dinifido um parâmetro de 
+            callback com nome "myMap" que atua com a kay fornecida pela google para o servidor
+        -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcYng9pBfj_LmDthyiydpfyy3bftchOmg&callback=myMap"></script> 
     </body>
 </html>

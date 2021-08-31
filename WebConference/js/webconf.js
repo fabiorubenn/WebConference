@@ -13,7 +13,6 @@ window.onload = function(){
     // uma função anónima que permitirá a abertura de uma janela modal)
     const btnLogin = document.getElementById("btnLogin")
     const btnRegister = document.getElementById("btnRegister")
-    const aSponsors = document.getElementById("aSponsors")
 
     // ############## Autenticar administrador na área privada ##############
     // abertura da janela modal (usando o médodo swal do sweetalert2 importado
@@ -163,74 +162,211 @@ window.onload = function(){
         const renderSpeakers = document.getElementById("renderSpeakers")
         let txtSpeakers = ""
         const response = await fetch(`${urlBase}/conferences/1/speakers`)
-        const speakers = await response.json()
-        for (const speaker of speakers) {
-            txtSpeakers += `
-                <div class="col-sm-4">
-                    <div class="team-member">      
-                        <img id="${speaker.idSpeaker}" class="mx-auto rounded-circle viewSpeaker" src="${speaker.foto}" alt="">
-                        <h4>${speaker.nome}</h4>
-                        <p class="text-muted">${speaker.cargo}</p>
-                        <ul class="list-inline social-buttons">`
-                        if (speaker.twitter!==null) {
-                            txtSpeakers += `
-                            <li class="list-inline-item">
-                                <a href="${speaker.twitter}" target="_blank">
-                                <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>`
-                        }
-                        if (speaker.facebook!==null) {
-                            txtSpeakers += `
-                            <li class="list-inline-item">
-                                <a href="${speaker.facebook}" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>`
-                        }    
-                        if (speaker.linkedin!==null) {
-                            txtSpeakers += `
-                            <li class="list-inline-item">
-                                <a href="${speaker.linkedin}" target="_blank">
-                                <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>`
-                        }
-            txtSpeakers += `                
-                        </ul>
+        if (response.status === 200) { // verifica se recebeu com sucesso o objeto do promise
+            const speakersData = await response.json()
+            for (const speaker of speakersData) {
+                txtSpeakers += `
+                    <div class="col-sm-4">
+                        <div class="team-member">      
+                            <img id="${speaker.idSpeaker}" class="mx-auto rounded-circle viewSpeaker" src="${speaker.foto}" alt="">
+                            <h4>${speaker.nome}</h4>
+                            <p class="text-muted">${speaker.cargo}</p>
+                            <ul class="list-inline social-buttons">`
+                            if (speaker.twitter!==null) {
+                                txtSpeakers += `
+                                <li class="list-inline-item">
+                                    <a href="${speaker.twitter}" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>`
+                            }
+                            if (speaker.facebook!==null) {
+                                txtSpeakers += `
+                                <li class="list-inline-item">
+                                    <a href="${speaker.facebook}" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>`
+                            }    
+                            if (speaker.linkedin!==null) {
+                                txtSpeakers += `
+                                <li class="list-inline-item">
+                                    <a href="${speaker.linkedin}" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>`
+                            }
+                txtSpeakers += `                
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            `    
-        }
-        // adiciona a informação dos oradores no div da pagína HTML com id="renderSpeakers"
-        renderSpeakers.innerHTML = txtSpeakers
-        // ao clicar na imagem do orador também será apresentada uma biografia do mesmo, para
-        // tal foi adicionada a class "viewSpeaker" à imagem para permitir adicionar o 
-        // event listner ao click na mesma; na prática, será adicionado um listener à imagem  
-        // de cada orador (por isso é examinado "btnView.length" para ver todos os oradores);
-        // o listener é aplicado ao "click" na imagem e quando o click ocorre o ciclo 
-        // "for (const speaker of speakers)" determina em qual imagem foi clicada e depois 
-        // cria uma janela janela modal (usando o médodo swal do sweetalert2 importado
-        // no final do "index.html") com o nome, biografia e imagem (400 por 400 sem animação)
-        // do orador
-        const btnView = document.getElementsByClassName("viewSpeaker")
-        for (let i = 0; i < btnView.length; i++) {
-            btnView[i].addEventListener("click", () => {         
-                for (const speaker of speakers) {
-                    if (speaker.idSpeaker == btnView[i].getAttribute("id")) {
-                        swal({
-                            title: speaker.nome,
-                            text: speaker.bio,
-                            imageUrl: speaker.foto,
-                            imageWidth: 400,
-                            imageHeight: 400,
-                            imageAlt: 'Foto do orador',
-                            animation: false
-                        })                 
+                `    
+            }
+            // adiciona a informação dos oradores no div da pagína HTML com id="renderSpeakers"
+            renderSpeakers.innerHTML = txtSpeakers
+            // ao clicar na imagem do orador também será apresentada uma biografia do mesmo, para
+            // tal foi adicionada a class "viewSpeaker" à imagem para permitir adicionar o 
+            // event listner ao click na mesma; na prática, será adicionado um listener à imagem  
+            // de cada orador (por isso é examinado "btnView.length" para ver todos os oradores);
+            // o listener é aplicado ao "click" na imagem e quando o click ocorre o ciclo 
+            // "for (const speaker of speakers)" determina em qual imagem foi clicada e depois 
+            // cria uma janela janela modal (usando o médodo swal do sweetalert2 importado
+            // no final do "index.html") com o nome, biografia e imagem (400 por 400 sem animação)
+            // do orador
+            const btnView = document.getElementsByClassName("viewSpeaker")
+            for (let i = 0; i < btnView.length; i++) {
+                btnView[i].addEventListener("click", () => {         
+                    for (const speaker of speakers) {
+                        if (speaker.idSpeaker == btnView[i].getAttribute("id")) {
+                            swal({
+                                title: speaker.nome,
+                                text: speaker.bio,
+                                imageUrl: speaker.foto,
+                                imageWidth: 400,
+                                imageHeight: 400,
+                                imageAlt: 'Foto do orador',
+                                animation: false
+                            })                 
+                        }
                     }
-                }
-            })
+                })
+            }
         }
-
+        else {
+            swal("Cannot get speakers information from the server from the server")
+        }
     })(); // o uso de () aqui é para a função ser autoinvocada através da técnica IIFE (Immediatly Invoked Function Expression)
-}
+
+    // ############## Obter informações dos sponsors a partir do servidor ##############
+    // faz o pedido dos dados relativos aos sponsors usando uma função assíncrona e autoinvocada que usa o fetch e espera para 
+    // receber a resposta (objeto json), depois usa o siclo "for ... of" para extrair a informação de cada sponsor e gera o 
+    // HTML para apresentar a informação (site do sponsor, colocado em href embora não esta a ser usado neste exemplo, e imagem
+    // do sponsor), o HTML é depois colocado (usando o DOM) na div que com id "renderSponsors"
+    ( async () => {
+        const renderSponsors = document.getElementById("renderSponsors")
+        let txtSponsors = ""
+        const response = await fetch(`${urlBase}/conferences/1/sponsors`)
+        if (response.status === 200) { // verifica se recebeu com sucesso o objeto do promise
+            const sponsors = await response.json()
+            for (const sponsor of sponsors) {
+            txtSponsors += `
+            <div class="col-md-3 col-sm-6">
+                <a href="#" target="_blank">
+                <img class="img-fluid d-block mx-auto" src="${sponsor.logo}" alt="${sponsor.nome}">
+                </a>
+            </div>`
+            }  
+            renderSponsors.innerHTML = txtSponsors
+        }
+        else {
+            swal("Cannot get sponsors information from the server from the server")
+        }
+    })();
+
+    // ############## submeter uma mensagem criada pelo utilizador (em contactos) para o servidor ##############
+    // após o utilizador preencher o formulário e pressionar o botão submeter o listner (associado ao click no botão que gera 
+    // o "submit") usa a API fetch para enviar os dados do formulário ao servidor para um novo enpoint (específico para tratar 
+    // dos contactos: .../contacts/emails) depois de recebida a resposta do servidor é verificado o valor booleano da 
+    // cheve success (para saber se o servidor recebeu a informação com sucesso)
+    const contactForm = document.getElementById("sendMessageButton")
+    contactForm.addEventListener("click", async function() {
+        const name = document.getElementById("name").value
+        const email = document.getElementById("email").value
+        // const telefone = document.getElementById("phone") // neste exemplo não enviamos o número de telefone ao servidor
+        const subject = document.getElementById("message").value
+        const response = await fetch(`${urlBase}/conferences/1/contacts/emails`, {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },          
+            method: "POST",
+            body: `email=${email}&name=${name}&subject=${subject}`
+        })
+        if (response.status === 200) {
+            swal("Envio de mensagem com sucesso")
+        }
+        else {
+            swal("Erro ao submeter a mensagem")
+        }
+    });
+};
+
+// ############## apresentar o mapa com a localização da conferência ##############
+// função de callback definida para usar a API do google
+function myMap() {
+    // Ponto no mapa a localizar (cidade do Porto), indicando a latitude e a longitude
+    const porto = new google.maps.LatLng(41.14961  , -8.61099)
+    // Propriedades do objeto mapProp para renderizar o mapa (onde ficará centrado o mapa, 
+    // o nível de  zoom, a impossibilidade de madificar o mapa por zoom (scrollwheel) ou 
+    // por arrasto (draggable), e o tipo de mapa desejado)
+    const mapProp = {
+        center:porto, 
+        zoom:12, 
+        scrollwheel:false, 
+        draggable:false, 
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    }
+    // Renderizar o mapa no div "googleMap"
+    const map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    // Criação do objeto infowindow que é uma janela de informação (info window) que se 
+    // sobrepõe ao mapa
+    const infowindow = new google.maps.InfoWindow({
+        content: "É aqui a WebConference!"
+    })
+    // Criação do objeto marker que é um marcador que aponta para a localização desejada
+    // no mapa e apresenta o nome da conferência
+    const marker = new google.maps.Marker({
+        position:porto,
+        map:map,
+        title:"WebConference"
+    })
+    // Listener associado ao marcador que fará com que a janela de informação se abra
+    // sempre que o marcador seja clicado (usa o método open do objeto infowindow)
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    })
+
+    // Autenticar administrador na área privada ao clicar no botão btnLogin associa à "ÁREA PRIVADA"
+    btnLogin.addEventListener("click", function() {
+    swal({
+        title: "Acesso à área de gestão da WebConference",
+        html:
+        '<input id="txtEmail" class="swal2-input" placeholder="e-mail">' +
+        '<input id="txtPass" class="swal2-input" placeholder="password">',      
+        showCancelButton: true,
+        confirmButtonText: "Entrar",
+        cancelButtonText: "Cancelar",
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+            const email = document.getElementById('txtEmail').value
+            const pass = document.getElementById('txtPass').value
+            return fetch(`${urlBase}/signin`, {
+                headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+                },          
+                method: "POST",
+                body: `email=${email}&password=${pass}`
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    swal.showValidationError(`Pedido falhado: ${error}`);
+                });
+        },
+        allowOutsideClick: () => !swal.isLoading()
+    })
+        .then(result => {
+            console.log(result.value)
+            if (result.value.sucesss) {                       
+                swal({title: "Autenticação feita com sucesso!"})
+                window.location.replace("admin/participants.html")  
+            } else {
+                swal({title: `${result.value.message.pt}`})  
+            }
+        
+        });
+    });
+} 

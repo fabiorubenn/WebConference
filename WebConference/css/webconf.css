@@ -211,7 +211,6 @@ header.masthead .intro-text .intro-heading{
     margin: 15px 0;  
 }
 
-
 /****************** SPEAKERS **********************/
 .team-member {
     margin-bottom: 50px;
@@ -229,4 +228,46 @@ header.masthead .intro-text .intro-heading{
 }
 .team-member p {
     margin-top: 0;
+}
+
+/****************** Mapa **********************/
+#googleMap {
+    width: 100%; /* Span the entire width of the screen */
+    height: 400px; /* Set the height to 400 pixels */
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); /* Change the color of the map to black and white */
+}
+
+/****************** Rodapé (footer) **********************/
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+footer span.copyright {
+    font-size: 90%;
+    line-height: 40px;
+    text-transform: none;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+ul.social-buttons {
+    margin-bottom: 0;
+}
+/* define the animation for the social buttons when passing the mause over them */
+ul.social-buttons li a {
+    font-size: 20px;
+    line-height: 40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #212529;
+}
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+    background-color: #3677b1;
 }

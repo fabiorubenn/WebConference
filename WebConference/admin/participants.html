@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- template do SB admin adaptado para a conferência, esta página é para gestão dos participantes -->
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>WebConference Admin - Participantes</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Custom styles for this template-->
+  <link href="sb-admin.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+</head>
+
+<body id="page-top">
+  <!-- navigation bar from the template -->
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <!-- Alterado o nome para: WebConference Admin -->
+    <a class="navbar-brand mr-1" href="dashboard.html">WebConference Admin</a> 
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="navbar-nav ml-auto">
+      <li>
+        <a id="logout" class="navbar-brand mr-auto" href="#">Logout</a>
+      </li>
+    </ul>
+
+  </nav>
+
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <!-- 
+        Alterada a barra lateral para conter os três items de gestão nesta conferência,
+        a gestão dos participantes (encaminha para participants.html), a gestão dos 
+        oradores (encaminha para speakers.html) e a gestão dos sponsors (encaminha para
+        sponsors.html)
+      -->
+      <li class="nav-item active">
+        <a class="nav-link" href="participants.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Participantes</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="speakers.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Oradores</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sponsors.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Sponsors</span>
+        </a>
+      </li>
+    </ul>
+    <!-- 
+      Definição de um container  com toda a largura da página e inclui no seu
+      interior um componente jumbotron (indicates a big grey box for calling extra 
+      attention to some special content or information), a indicação do título e 
+      sub-título, e a criação de uma linha separadora (com id divParticipants); esta 
+      linha irá funcionar como um contentor da tabela com todos os dados dos utilizadores
+      inscritos ma conferência
+    -->
+    <div id="content-wrapper">
+      <div class="container-fluid">
+        <div class="jumbotron">
+          <h1 class="display-3">Participantes</h1>
+          <p class="lead">Gestão inscritos na WebConference</p>
+          <hr class="my-2">
+          <!-- Linha de separação -->
+          <div id="divParticipants" class="container">
+            <!-- 
+              Tabela responsiva com os dados dos participantes, ao usar table-responsive 
+              será criada uma barra de rolagem horizontal na parte inferior da tabela em
+              ecrãs com menos de 992px de largura (caso seja necessário)
+            -->
+            <div class="table-responsive">
+              <!-- 
+                Usar a classe table para utilizar o estilo predefinido do bootstrap 
+                para tabelas e depois usar table-sm (tabela pequena) para tornar a 
+                tabela mais pequena, reduzindo para metade o preenchimento interno (padding)
+                das sua células; o contúdo da tabela será gerado pelo JS (participants.js)
+                como resposta a um pedido feito ao servidor
+              -->
+              <table id="tblParticipants" class="table table-sm"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+
+      <!-- Sticky Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © WebConference 2018</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Plugin JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.9/sweetalert2.all.min.js"></script>
+
+
+  <!-- Custom scripts for all pages-->
+  <script src="participants.js"></script>
+
+
+</body>
+
+</html>
