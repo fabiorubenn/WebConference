@@ -1,4 +1,4 @@
-// JS usado para apresentar a informação dos participantes ao administrador
+// JS usado para gestão dos participantes pelo administrador
 
 // domínio comum de todos os endpoints de esta aplicação (o url_base)
 const urlBase = "https://fcawebbook.herokuapp.com"

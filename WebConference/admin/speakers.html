@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- template do SB admin adaptado para a conferência, esta página é para gestão dos oradores -->
   <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,36 +18,33 @@
     
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    
-
-   
-
   </head>
 
   <body id="page-top">
-
+<!-- navigation bar from the template -->
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-
+      <!-- Alterado o nome para: WebConference Admin -->
       <a class="navbar-brand mr-1" href="dashboard.html">WebConference Admin</a>
-
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
       </button>
-
-
-
     </nav>
 
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">      
+      <ul class="sidebar navbar-nav">
+        <!-- 
+          Alterada a barra lateral para conter os três items de gestão nesta conferência,
+          a gestão dos participantes (encaminha para participants.html), a gestão dos 
+          oradores (encaminha para speakers.html) e a gestão dos sponsors (encaminha para
+          sponsors.html)
+        -->      
         <li class="nav-item">
           <a class="nav-link" href="participants.html">
               <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Participantes</span></a>
         </li>
-        
         <li class="nav-item active">
           <a class="nav-link" href="speakers.html">
             <i class="fas fa-fw fa-chart-area"></i>
@@ -60,74 +56,86 @@
             <span>Sponsors</span></a>
         </li>
       </ul>
-
+      <!-- 
+        Definição de um container  com toda a largura da página e inclui no seu
+        interior um componente jumbotron (indicates a big grey box for calling extra 
+        attention to some special content or information), a indicação do título e 
+        sub-título, e a criação de uma linha separadora (com o componente hr); esta 
+        linha irá funcionar como um contentor para o formulário (para adicionar novos
+        oradores) e para tabela com todos os dados dos oradores
+      -->
       <div id="content-wrapper">
-
         <div class="container-fluid">
-
           <div class="jumbotron">
-            <h1 class="display-3">Oradores</h1>
+            <h1 class="display-3">Oradores</h1> <!-- Display headings with defined sizes (from 1, the larger, to 6, the smaller) -->
             <p class="lead">Gestão de Oradores na WebConference</p>
-            <hr class="my-2">
+            <hr class="my-2"> <!-- bootstrap spacing elements, the "m" is for margin and "y" is verttical, thus margin for top and bottom, the value can be from 0 (no margin) to 5 (margin or padding to $spacer * 3) (for 2 is margin or padding to $spacer * .5) or auto -->
             <form id="frmSpeaker">
-                <input type="hidden" id="txtSpeakerId">
-                
-             <div class="row" >    
-              <div class="form-group col">
+              <!-- formulário para inscrição/atualização de oradores -->
+                <input type="hidden" id="txtSpeakerId"> <!-- "use hidden" to hide an element, this property was removed in bootstrap 4 an replace by classes "d-*", for example to only show a text if the xxl screen size is large use: d-none d-xxl-block -->
+              <div class="row" >  
+                <!-- apresentação do nome do orador -->  
+                <div class="form-group col"> <!-- bootstrap standard method to add some custom structure to forms -->
                   <label for="inputName">Nome</label>
                   <input type="text" placeholder="nome" class="form-control" id="txtName" required>
-              </div>                    
-              <div class="form-group col">
+                </div>         
+                <!-- apresentação do cargo do orador na mesma linha onde foi apresentado o nome do orador -->             
+                <div class="form-group col">
                   <label for="inputName">Cargo</label>
                   <input type="text" placeholder="cargo" class="form-control" id="txtJob" required>
+                </div>
               </div>
-            </div>
-              
+              <!-- apresentação da foto do orador numa nova linha -->    
               <div class="form-group ">
-                  <label for="inputPhoto">Foto</label>
-                  <input type="url" placeholder="foto" class="form-control" value="http://xxx.pt" id="txtPhoto" required>
+                <label for="inputPhoto">Foto</label>
+                <input type="url" placeholder="foto" class="form-control" value="http://x.pt" id="txtPhoto" required>
               </div> 
+              <!-- a terceira linha vai albergar três caixas de texto para os identificadores das redes sociais (facebook, twitter e linkedin) -->
               <div class="row" >                    
-              <div class="form-group col">
+                <div class="form-group col">
                   <label for="inputName">Facebook</label>
                   <input type="text" placeholder="facebook" class="form-control" id="txtFacebook">
-              </div>
-              <div class="form-group col">
+                </div>
+                <div class="form-group col">
                   <label for="inputName">Twitter</label>
                   <input type="text" placeholder="twitter" class="form-control" id="txtTwitter">
-              </div>
-              
+                </div>
                 <div class="form-group col">
-                    <label for="inputName">LinkedIn</label>
-                    <input type="text" placeholder="linkedin" class="form-control" id="txtLinkedin">
+                  <label for="inputName">LinkedIn</label>
+                  <input type="text" placeholder="linkedin" class="form-control" id="txtLinkedin">
                 </div>           
               </div>     
-              <div class="form-group ">
-                <label for="inputPhoto">Bio</label>
-                <textarea id="txtBio" placeholder="biografia" class="form-control" cols="30" rows="5 "></textarea>                
-            </div>                          
-                <!-- Buttons-->
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-primary mb-2">Guardar Orador</button>
-                        <button type="reset" class="btn btn-primary mb-2">Limpar valores</button>
-                    </div>
+              <!-- 
+                na quarta linha é incluida uma caixa de texto (textarea) que cobre toda a janela (usa 12 das 12 colunas disponíveis para a 
+                gralha indicando col-md-12), o tamanho da caixa de texto é definido por cols e rows
+              -->
+              <div class="row"> 
+                <div class="form-group col-md-12">
+                  <label for="inputBio">Biografia</label>
+                  <textarea id="txtBio" placeholder="biografia" class="form-control" cols="30" rows="5 "></textarea>             
+                </div>     
+              </div>                      
+              <!-- 
+                a última linha (cobre toda a janela, col-md-12) da grelha inclui dois botões, um para submissão (responsável por 
+                inserir/atualizar um orador) e um para reposição dos valores originais do formulário (enviados pelo servidor)
+              -->
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <button type="submit" class="btn btn-primary mb-2">Guardar Orador</button>
+                  <button type="reset" class="btn btn-primary mb-2">Limpar valores</button>
                 </div>
-        </form>
+              </div>
+            </form>
           
-            <!--################## ORADORES ###################-->
+            <!-- apresentação de uma tabela responsiva pra apresentar os oradores -->
             <div id="divSpeakers" class="container">
-                <!-- Table -->
-                <div class="table-responsive">
-                    <table id="tblSpeakers" class="table table-sm">            
-                    </table>
-                </div>
+              <!-- dados para a tabela gerados por JS -->
+              <div class="table-responsive">
+                <table id="tblSpeakers" class="table table-sm">            
+                </table>
+              </div>
             </div>
-            
           </div>
-
-          
-       
 
         </div>
         <!-- /.container-fluid -->

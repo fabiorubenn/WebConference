@@ -1,11 +1,12 @@
+// ##################### código para manipulação DOM #####################
+
 // começar por manipular o obejto window de forma a que o código seja executado
 // assim que o conteúdo HTML esteja carregado em memória  epossa ser manipilado 
 // pelo Document Object Model (DOM)
+
 window.onload = function(){
     // domínio comum de todos os endpoints de esta aplicação (o url_base)
     const urlBase = "https://fcawebbook.herokuapp.com"
-
-    // ##################### código para manipulação DOM #####################
 
     // implementação de um event listner para cada botão (para o botão de 
     // realização do login que trata a ação de clicar no botão; é necessário 
@@ -15,6 +16,7 @@ window.onload = function(){
     const btnRegister = document.getElementById("btnRegister")
 
     // ############## Autenticar administrador na área privada ##############
+
     // abertura da janela modal (usando o médodo swal do sweetalert2 importado
     // no final do "index.html") para tratar o pressionar (click) do botão
     // btnLogin, a janéla tem duas caixas de texto (uma para o nome e outra para
@@ -99,6 +101,7 @@ window.onload = function(){
     });
 
     // ############## Registar participante ##############
+    
     // abertura da janela modal para tratar o click do botão btnRegister
     btnRegister.addEventListener("click", function() {
         swal({
@@ -143,6 +146,7 @@ window.onload = function(){
     });
 
     // ############## Obter informações dos speakers a partir do servidor ##############
+
     // uso de uma função assíncrona (abreviada com o usa de uma função arrow, =>) com a 
     // API Fetch para obter os dados dos oradores; a API devolve o objeto promise e o
     // "await" vai aguardar pela resolução do promise (obtenção dos dados) e depois
@@ -238,6 +242,7 @@ window.onload = function(){
     })(); // o uso de () aqui é para a função ser autoinvocada através da técnica IIFE (Immediatly Invoked Function Expression)
 
     // ############## Obter informações dos sponsors a partir do servidor ##############
+
     // faz o pedido dos dados relativos aos sponsors usando uma função assíncrona e autoinvocada que usa o fetch e espera para 
     // receber a resposta (objeto json), depois usa o siclo "for ... of" para extrair a informação de cada sponsor e gera o 
     // HTML para apresentar a informação (site do sponsor, colocado em href embora não esta a ser usado neste exemplo, e imagem
@@ -264,6 +269,7 @@ window.onload = function(){
     })();
 
     // ############## submeter uma mensagem criada pelo utilizador (em contactos) para o servidor ##############
+
     // após o utilizador preencher o formulário e pressionar o botão submeter o listner (associado ao click no botão que gera 
     // o "submit") usa a API fetch para enviar os dados do formulário ao servidor para um novo enpoint (específico para tratar 
     // dos contactos: .../contacts/emails) depois de recebida a resposta do servidor é verificado o valor booleano da 
@@ -291,6 +297,7 @@ window.onload = function(){
 };
 
 // ############## apresentar o mapa com a localização da conferência ##############
+
 // função de callback definida para usar a API do google
 function myMap() {
     // Ponto no mapa a localizar (cidade do Porto), indicando a latitude e a longitude

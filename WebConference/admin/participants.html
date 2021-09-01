@@ -30,17 +30,14 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <!-- Alterado o nome para: WebConference Admin -->
     <a class="navbar-brand mr-1" href="dashboard.html">WebConference Admin</a> 
-
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
-
     <ul class="navbar-nav ml-auto">
       <li>
         <a id="logout" class="navbar-brand mr-auto" href="#">Logout</a>
       </li>
     </ul>
-
   </nav>
 
 
@@ -77,16 +74,16 @@
       Definição de um container  com toda a largura da página e inclui no seu
       interior um componente jumbotron (indicates a big grey box for calling extra 
       attention to some special content or information), a indicação do título e 
-      sub-título, e a criação de uma linha separadora (com id divParticipants); esta 
+      sub-título, e a criação de uma linha separadora (com o elemento hr); esta 
       linha irá funcionar como um contentor da tabela com todos os dados dos utilizadores
       inscritos ma conferência
     -->
     <div id="content-wrapper">
       <div class="container-fluid">
         <div class="jumbotron">
-          <h1 class="display-3">Participantes</h1>
+          <h1 class="display-3">Participantes</h1> <!-- Display headings with defined sizes (from 1, the larger, to 6, the smaller) -->
           <p class="lead">Gestão inscritos na WebConference</p>
-          <hr class="my-2">
+          <hr class="my-2"> <!-- bootstrap spacing elements, the "m" is for margin and "y" is verttical, thus margin for top and bottom, the value can be from 0 (no margin) to 5 (margin or padding to $spacer * 3) (for 2 is margin or padding to $spacer * .5) or auto -->
           <!-- Linha de separação -->
           <div id="divParticipants" class="container">
             <!-- 
