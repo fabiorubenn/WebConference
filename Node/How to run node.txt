@@ -1,0 +1,22 @@
+Create new JS script to run in Node.JS:
+-Do not run the application using node.js icon.
+-Go to All Programmes (by pressing the windows key in the keyborad that oppens the windows menu that has all programs)->Node.js->Node.js command prompt.
+-Go the the desired folder location
+-Type in the console: npm init
+-Respond to the questionair and at the end the file package.json will be created
+-To create a simple Hello World example go to the folder where package.json was created and in notepad++ create a new JS file, with name: HelloWorld.js
+-Type the JS code in notepad++, for this example use:
+
+const http = require('http');
+const server = http.createServer(function (request, response) {
+	response.writeHead(200, {'Content-type': 'text/html'});
+	response.write('<html><body><h1>Hello World</h1></body></html>');
+	response.end();
+});
+server.listen(3000);
+console.log('Servidor Node.JS em execução');
+
+-Save the file and then in Node.js command prompt type: node HelloWorld.js
+-The server will reply: Servidor Node.JS em execução
+-Open the browser and type: http://127.0.0.1:3000/
+-The "Hello World" message should show
