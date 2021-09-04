@@ -11,5 +11,10 @@
     "node"
   ],
   "author": "Fabio",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "Express": "^3.0.1",
+    "express.js": "^1.0.0"
+  },
+  "devDependencies": {}
 }

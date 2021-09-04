@@ -1,0 +1,45 @@
+Create new JS script to run in Node.JS:
+-Do not run the application using node.js icon.
+-Go to All Programmes (by pressing the windows key in the keyborad that oppens the windows menu that has all programs)->Node.js->Node.js command prompt.
+-Go the the desired folder location
+-Install express: npm install express.js --save  
+-Type in the console: npm init
+-Respond to the questionair and at the end the file package.json will be created
+-To create a simple Hello World example go to the folder where package.json was created and in notepad++ create a new JS file, with name: HelloWorldExpress.js
+-Type the JS code in notepad++, for this example use:
+
+
+// usar o módulo express para criar uma applicação (con nome app), colocando (o servidor) à escuta na porta 3000
+const express = require('express');
+const app = express();
+const server = app.listen(3000, function () {
+	console.log('Servidor a funcionar na porta %s...', server.address().port);
+});
+// criação da rota que contem o método HTTP (o método get), o caminho (neste caso é '/' indicado que é na raiz
+// e uma função de callback para quando o evento ocorrer (neste caso function(req, res) que permite enviar respostas
+// com dados em diferentes formatos tal como string, array, object, etc); Esta rota (que está a ser criada) representa
+// a raiz da aplicação e retorna a mensagem 'Hello World!'
+// para aceder a rota no chrome usar: http://localhost:3000/
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+// criação de uma rota para representar a localização '/help'
+// para aceder a rota no chrome usar: http://localhost:3000/help
+app.get('/help', (req, res) => {
+  res.send('Precisa de ajuda?')
+})
+// criação de uma rota para representar a localização '/help/more'
+// para aceder a rota no chrome usar: http://localhost:3000/help/more
+app.get('/help/more', (req, res) => {
+  res.send('Precisa de ainda mais ajuda?')
+})
+
+
+-Save the file and then in Node.js command prompt type: node HelloWorld.js
+-The server will reply: Servidor a funcionar na porta 3000...
+-Open the browser and type: http://127.0.0.1:3000/ or http://localhost:3000/
+-The "Hello World" message should show
+-Open the browser and type: http://127.0.0.1:3000/help/ or http://localhost:3000/help
+-The "Precisa de ajuda?" message should show
+-Open the browser and type: http://127.0.0.1:3000/help/more/ or http://localhost:3000/help/more/
+-The "Precisa de ainda mais ajuda?" message should show
