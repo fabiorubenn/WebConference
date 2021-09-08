@@ -1,3 +1,5 @@
+// Mensagens referentes a operações na base de dados escritas em duas linguas (pt e eng), sendo o browser responsável por escolher qual lingua usar,
+// também incluem o estado da resposta (status) e a indicação se houve ou não sucesso (success)
 module.exports = {
     db: {
         noRecords: {
